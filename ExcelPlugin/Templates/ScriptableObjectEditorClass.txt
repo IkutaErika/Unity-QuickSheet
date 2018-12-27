@@ -9,28 +9,31 @@ using UnityQuickSheet;
 ///
 /// !!! Machine generated code !!!
 ///
-[CustomEditor(typeof($WorkSheetClassName))]
-public class $ClassName : BaseExcelEditor<$WorkSheetClassName>
-{	    
-    public override bool Load()
-    {
-        $WorkSheetClassName targetData = target as $WorkSheetClassName;
-
-        string path = targetData.SheetName;
-        if (!File.Exists(path))
-            return false;
-
-        string sheet = targetData.WorksheetName;
-
-        ExcelQuery query = new ExcelQuery(path, sheet);
-        if (query != null && query.IsValid())
+namespace Spreadsheet
+{
+    [CustomEditor(typeof($WorkSheetClassName))]
+    public class $ClassName : BaseExcelEditor<$WorkSheetClassName>
+    {	    
+        public override bool Load()
         {
-            targetData.dataArray = query.Deserialize<$DataClassName>().ToArray();
-            EditorUtility.SetDirty(targetData);
-            AssetDatabase.SaveAssets();
-            return true;
+            $WorkSheetClassName targetData = target as $WorkSheetClassName;
+    
+            string path = targetData.SheetName;
+            if (!File.Exists(path))
+                return false;
+    
+            string sheet = targetData.WorksheetName;
+    
+            ExcelQuery query = new ExcelQuery(path, sheet);
+            if (query != null && query.IsValid())
+            {
+                targetData.dataArray = query.Deserialize<$DataClassName>().ToArray();
+                EditorUtility.SetDirty(targetData);
+                AssetDatabase.SaveAssets();
+                return true;
+            }
+            else
+                return false;
         }
-        else
-            return false;
     }
 }

@@ -9,35 +9,38 @@ using System.Collections.Generic;
 /// A class which deriveds ScritableObject class so all its data 
 /// can be serialized onto an asset data file.
 /// 
-[System.Serializable]
-public class $ClassName : ScriptableObject 
-{	
-    [HideInInspector] [SerializeField] 
-    public string SheetName = "";
-    
-    [HideInInspector] [SerializeField] 
-    public string WorksheetName = "";
-    
-    // Note: initialize in OnEnable() not here.
-    public $DataClassName[] dataArray;
-    
-    void OnEnable()
-    {		
+namespace Spreadsheet
+{
+    [System.Serializable]
+    public class $ClassName : ScriptableObject 
+    {	
+        [HideInInspector] [SerializeField] 
+        public string SheetName = "";
+        
+        [HideInInspector] [SerializeField] 
+        public string WorksheetName = "";
+        
+        // Note: initialize in OnEnable() not here.
+        public $DataClassName[] dataArray;
+        public Dictionary<string, $DataClassName> dataDict;
+        
+        void OnEnable()
+        {		
 //#if UNITY_EDITOR
-        //hideFlags = HideFlags.DontSave;
+            //hideFlags = HideFlags.DontSave;
 //#endif
-        // Important:
-        //    It should be checked an initialization of any collection data before it is initialized.
-        //    Without this check, the array collection which already has its data get to be null 
-        //    because OnEnable is called whenever Unity builds.
-        // 		
-        if (dataArray == null)
-            dataArray = new $DataClassName[0];
-
+            // Important:
+            //    It should be checked an initialization of any collection data before it is initialized.
+            //    Without this check, the array collection which already has its data get to be null 
+            //    because OnEnable is called whenever Unity builds.
+            // 		
+            if (dataArray == null)
+                dataArray = new $DataClassName[0];
+            if (dataDict == null)
+                dataDict = new Dictionary<string, $DataClassName>();
+            if (dataArray.Length > 0 && dataDict.Count <= 0)
+                foreach (var dataElem in dataArray)
+                    dataDict[dataElem.ID] = dataElem;
+        }
     }
-    
-    //
-    // Highly recommand to use LINQ to query the data sources.
-    //
-
 }
