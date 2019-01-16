@@ -34,6 +34,11 @@ namespace UnityQuickSheet
         public string EditorPath = string.Empty;
 
         /// <summary>
+        /// A path where generated .asset files are to be put.
+        /// </summary>
+        public string AssetPath = string.Empty;
+
+        /// <summary>
         /// Select currently exist account setting asset file.
         /// </summary>
         [MenuItem("Edit/Project Settings/QuickSheet/Select Excel Setting")]
