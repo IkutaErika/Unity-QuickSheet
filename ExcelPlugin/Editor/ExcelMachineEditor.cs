@@ -31,6 +31,8 @@ namespace UnityQuickSheet
                     machine.RuntimeClassPath = ExcelSettings.Instance.RuntimePath;
                 if (string.IsNullOrEmpty(ExcelSettings.Instance.EditorPath) == false)
                     machine.EditorClassPath = ExcelSettings.Instance.EditorPath;
+                if (string.IsNullOrEmpty(ExcelSettings.Instance.AssetPath) == false)
+                    machine.AssetPath = ExcelSettings.Instance.AssetPath;
             }
         }
 
@@ -154,6 +156,7 @@ namespace UnityQuickSheet
             machine.TemplatePath = EditorGUILayout.TextField("Template: ", machine.TemplatePath);
             machine.RuntimeClassPath = EditorGUILayout.TextField("Runtime: ", machine.RuntimeClassPath);
             machine.EditorClassPath = EditorGUILayout.TextField("Editor:", machine.EditorClassPath);
+            machine.AssetPath = EditorGUILayout.TextField("Asset:", machine.AssetPath);
             //machine.DataFilePath = EditorGUILayout.TextField("Data:", machine.DataFilePath);
 
             machine.onlyCreateDataClass = EditorGUILayout.Toggle("Only DataClass", machine.onlyCreateDataClass);

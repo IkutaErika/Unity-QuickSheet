@@ -65,6 +65,17 @@ namespace UnityQuickSheet
             set { editorScriptFilePath = value; }
         }
 
+        /// <summary>
+        /// path the created asset files will be located.
+        /// </summary>
+        [SerializeField]
+        private string assetFilePath;
+        public string AssetPath
+        {
+            get { return assetFilePath; }
+            set { assetFilePath = value; }
+        }
+
         [SerializeField]
         private string sheetName;
         public string SpreadSheetName
