@@ -229,7 +229,11 @@ namespace UnityQuickSheet
 
             if (t == typeof(float) || t == typeof(double) || t == typeof(short) || t == typeof(int) || t == typeof(long))
             {
-                if (cell.CellType == NPOI.SS.UserModel.CellType.Numeric)
+                if (cell.CellType == NPOI.SS.UserModel.CellType.Blank)
+                {
+                    value = Activator.CreateInstance(t);
+                }
+                else if (cell.CellType == NPOI.SS.UserModel.CellType.Numeric)
                 {
                     value = cell.NumericCellValue;
                 }
