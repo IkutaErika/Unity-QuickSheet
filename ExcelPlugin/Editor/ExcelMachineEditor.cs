@@ -298,7 +298,7 @@ namespace UnityQuickSheet
             else
                 path = "Assets/" + path;
             path += "/" + machine.WorkSheetName + ".asset";
-            sp.assetFilepath = path;
+            sp.assetFilepath = path.Replace('\\', '/');
             sp.assetPostprocessorClass = machine.WorkSheetName + "AssetPostprocessor";
             sp.template = GetTemplate("PostProcessor");
 
