@@ -26,22 +26,6 @@ namespace UnityQuickSheet
         private string m_Text;
         private ScriptPrescription m_ScriptPrescription;
         private string m_Indentation;
-        private int m_IndentLevel = 0;
-        
-        private int IndentLevel
-        {
-            get
-            {
-                return m_IndentLevel;
-            }
-            set
-            {
-                m_IndentLevel = value;
-                m_Indentation = String.Empty;
-                for (int i=0; i<m_IndentLevel; i++)
-                    m_Indentation += "  ";
-            }
-        }
         
         private string ClassName
         {
@@ -158,12 +142,10 @@ namespace UnityQuickSheet
             foreach (KeyValuePair<string, string> kvp in m_ScriptPrescription.mStringReplacements)
                 m_Text = m_Text.Replace (kvp.Key, kvp.Value);
 
-            // Do not change tabs to spcaes of the .txt template files.
-            Match match = Regex.Match (m_Text, @"(\t*)\$MemberFields");
+            Match match = Regex.Match (m_Text, @"([ \t]*)\$MemberFields");
             if (match.Success)
             {
-                // Set indent level to number of tabs before $Functions keyword
-                IndentLevel = match.Groups[1].Value.Length;
+                m_Indentation = match.Groups[1].Value;
                 if (m_ScriptPrescription.memberFields != null)
                 {
                     foreach(var field in m_ScriptPrescription.memberFields)

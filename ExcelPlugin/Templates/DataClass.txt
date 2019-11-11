@@ -3,13 +3,12 @@ using System.Collections;
 
 ///
 /// !!! Machine generated code !!!
-/// !!! DO NOT CHANGE Tabs to Spaces !!!
 /// 
 namespace Spreadsheet
 {
-	[System.Serializable]
-	public class $ClassName
-	{
-		$MemberFields
-	}
+    [System.Serializable]
+    public class $ClassName
+    {
+        $MemberFields
+    }
 }
