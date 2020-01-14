@@ -118,6 +118,10 @@ namespace GDataDB.Impl {
                                 value = c.Value.Replace(" ", string.Empty);
                                 value = Enum.Parse(property.PropertyType, value.ToString());
                             } 
+                            else if (string.IsNullOrEmpty(c.Value))
+                            {
+                                value = Activator.CreateInstance(property.PropertyType);
+                            }
                             else 
                             {
                                 value = ConvertFrom(c.Value, property.PropertyType);
