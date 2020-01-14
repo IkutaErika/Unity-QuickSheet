@@ -1,18 +1,17 @@
 {
     "name": "MokaGames.Unity-QuickSheet.ExcelPlugin.Editor",
     "references": [
-        "GUID:7d1a375db8358534083f2e09dc0ca705",
-        "GUID:fe64d17648451ef4e85cd5b37f0bf416"
+        "MokaGames.Unity-QuickSheet",
+        "MokaGames.Unity-QuickSheet.Editor"
     ],
+    "optionalUnityReferences": [],
     "includePlatforms": [],
     "excludePlatforms": [
         "Android",
         "iOS",
         "LinuxStandalone64",
-        "Lumin",
         "macOSStandalone",
         "PS4",
-        "Stadia",
         "Switch",
         "tvOS",
         "WSA",
@@ -21,11 +20,5 @@
         "WindowsStandalone64",
         "XboxOne"
     ],
-    "allowUnsafeCode": false,
-    "overrideReferences": false,
-    "precompiledReferences": [],
-    "autoReferenced": true,
-    "defineConstraints": [],
-    "versionDefines": [],
-    "noEngineReferences": false
+    "allowUnsafeCode": false
 }

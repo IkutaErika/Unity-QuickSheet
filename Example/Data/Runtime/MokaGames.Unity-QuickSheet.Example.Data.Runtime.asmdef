@@ -1,15 +1,10 @@
 {
     "name": "MokaGames.Unity-QuickSheet.Example.Data.Runtime",
     "references": [
-        "GUID:7d1a375db8358534083f2e09dc0ca705"
+        "MokaGames.Unity-QuickSheet"
     ],
+    "optionalUnityReferences": [],
     "includePlatforms": [],
     "excludePlatforms": [],
-    "allowUnsafeCode": false,
-    "overrideReferences": false,
-    "precompiledReferences": [],
-    "autoReferenced": true,
-    "defineConstraints": [],
-    "versionDefines": [],
-    "noEngineReferences": false
+    "allowUnsafeCode": false
 }
